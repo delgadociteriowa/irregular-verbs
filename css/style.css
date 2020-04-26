@@ -136,3 +136,32 @@ footer {
     width: 100%;
     height: 60px;
 }
+
+@media (max-width: 700px) {
+	
+	/*Game*/
+	.main-wrapper.game .game-item {
+		margin: .5em 0 1em 0
+	}
+
+	.main-wrapper.game .alert {
+	    margin-top: 1em;
+	}
+
+	#g-submit {
+		margin-bottom: 2em;
+	}
+	/*/Game*/
+
+	/*Pages*/
+	.main-wrapper.pages .content-wrapper {
+	    padding: 2em 1em;
+	   	height: 30em !important;
+	    overflow-y: scroll !important;
+	}
+	/*/Pages*/
+
+	footer {
+		display: none;
+	}
+}
