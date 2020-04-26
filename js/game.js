@@ -306,7 +306,9 @@ const GameUICtrl = (function(){
 		},
 
 		focusFirstField: function(){
-			document.querySelector('#g-past-tense-input').focus()
+			if(window.innerWidth > 830){
+				document.querySelector('#g-past-tense-input').focus()
+			}
 		},
 
 		enableSubmit: function(){
@@ -386,9 +388,13 @@ const Game = (function(GameUICtrl, GameLogicCtrl, GameStorageCtrl){
 
 		$('#g-game-over').on('shown.bs.modal', function () {
 			if(document.querySelector('#g-go-scores').newRecord) {
-				$('#g-player-name').focus()
+				if(window.innerWidth > 830){
+					$('#g-player-name').focus()
+				}
 			} else {
-				$('#g-go-scores').focus()
+				if(window.innerWidth > 830){
+					$('#g-go-scores').focus()
+				}
 			}
 		})
 	}
