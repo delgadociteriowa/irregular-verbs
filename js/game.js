@@ -400,20 +400,25 @@ const Game = (function(GameUICtrl, GameLogicCtrl, GameStorageCtrl){
 		switch (e.target.irregularVerbsState) {
 			case 'home':
 			  pageState.setState({content: homeComponent()}, 'home', 'home')(e)
+			  document.querySelector("#navbarSupportedContent").classList.remove("show")
 			  break
 			case 'home-brand':
 			  pageState.setState({content: homeComponent()}, 'home', 'home')(e)
+			  document.querySelector("#navbarSupportedContent").classList.remove("show")
 			  break
 			case 'how-to':
 			  pageState.setState({content: howToComponent()}, 'pages', 'how-to')(e)
+			  document.querySelector("#navbarSupportedContent").classList.remove("show")
 			  break
 			case 'top-scores':
 			  pageState.setState({content: topScoresComponent(
 			  	{ scores: renderScores() }
 			  )}, 'pages', 'top-scores')(e)
+			  document.querySelector("#navbarSupportedContent").classList.remove("show")
 			  break
 			case 'about':
 			  pageState.setState({content: aboutComponent()}, 'pages', 'about')(e)
+			  document.querySelector("#navbarSupportedContent").classList.remove("show")
 			  break 
 		}
 	}

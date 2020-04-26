@@ -1,5 +1,4 @@
 function app(initialState = {}) {
-  setBaseScores(baseScore)
   const state = initialState
 
   return {
@@ -261,6 +260,7 @@ function gameComponent(props) {
   `
 }
 
+setBaseScores(baseScore)
 const pageState = app()
 
 document.addEventListener(
@@ -274,20 +274,25 @@ const changePageState = function(e) {
   switch (e.target.id) {
     case 'home':
       pageState.setState({content: homeComponent()}, 'home', 'home')(e)
+      document.querySelector("#navbarSupportedContent").classList.remove("show")
       break
     case 'home-brand':
       pageState.setState({content: homeComponent()}, 'home', 'home')(e)
+      document.querySelector("#navbarSupportedContent").classList.remove("show")
       break
     case 'how-to':
       pageState.setState({content: howToComponent()}, 'pages', 'how-to')(e)
+      document.querySelector("#navbarSupportedContent").classList.remove("show")
       break
     case 'top-scores':
       pageState.setState({content: topScoresComponent(
         { scores: renderScores() }
       )}, 'pages', 'top-scores')(e)
+      document.querySelector("#navbarSupportedContent").classList.remove("show")
       break
     case 'about':
       pageState.setState({content: aboutComponent()}, 'pages', 'about')(e)
+      document.querySelector("#navbarSupportedContent").classList.remove("show")
       break 
   }
 }
