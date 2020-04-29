@@ -1,6 +1,5 @@
 const GameStorageCtrl = (function(){
-	const scoresArray = JSON.parse(localStorage.getItem( 'IVTopScores' ))	
-	const scoresNumbers = scoresArray.map(curr => curr.score)
+	let scoresArray, scoresNumbers
 
 	return{
 		returnScoresArray: function() {
@@ -45,6 +44,11 @@ const GameStorageCtrl = (function(){
 		      .then(data => resolve(data))
 		      .catch(err => reject(err))
 		    })
+		},
+
+		setScores: function() {
+			scoresArray = JSON.parse(localStorage.getItem( 'IVTopScores' ))
+			scoresNumbers = scoresArray.map(curr => curr.score)
 		}
 	}	
 })()
@@ -516,6 +520,7 @@ const Game = (function(GameUICtrl, GameLogicCtrl, GameStorageCtrl){
 			console.log('Verbs Game Ready!')
 
 			function initGameAfterData() {
+				GameStorageCtrl.setScores();
 				GameLogicCtrl.resetGameData()
 				const verbs = GameLogicCtrl.shuffleAndFetchVerbsObject()
 	      		const gameData = GameLogicCtrl.fetchGameDataObject()
